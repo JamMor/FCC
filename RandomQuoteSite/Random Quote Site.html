@@ -1,0 +1,76 @@
+<script>
+	var colors = ["#0042ff", "#00ffd8", "#6cff00", "#fbff00", "#ff8f00", "#ff0000", "#03ab03", "#ff009e", "#ff00ff", "#bd00ff"];
+	var colorsLight = ['#80a1ff', '#80ffec', '#b6ff80', '#fdff80', '#ffc780', '#ff8080', '#81d581', '#ff80cf', '#ff80ff', '#de80ff'];
+	var colorsDark = ['#002180', '#00806c', '#368000', '#7e8000', '#804800', '#800000', '#025602', '#80004f', '#800080', '#5f0080'];
+
+	var colIndex = 0;
+
+	$(document).ready(function(){
+		$(".newQuote").click(function(){
+			colIndex = (colIndex + 1) % colors.length;
+			$("body").css("background-color", colors[colIndex]);
+			$(".btn").css("color", colorsDark[colIndex]);
+			$(".newQuote").css("background-color", colors[colIndex]);
+			$(".theBox").css("background-color", colorsLight[colIndex]);	     
+		})
+	});
+</script>
+
+
+<style>
+
+	body {background-color:#0042ff;
+			transition: background-color 1s ease-in-out;}
+	.theBox {max-width: 700px;
+			width:75%;
+			height: 200px;
+			position:relative;
+			background-color: #80a1ff;
+			transition: background-color 1s ease-in-out;
+			margin:auto;
+			padding:100px;
+			box-shadow: 10px 10px 10px grey;}
+	.btn {color: #002180;
+			transition: color 0.5s ease-in-out;
+			border:none;}
+	.newQuote {background-color:#0042ff;
+			transition: background-color 0.5s ease-in-out;
+			padding: 5px 15px;
+			position:absolute;
+			bottom:10px;
+			right:10px;
+			border-radius:5px;
+			text-align:center;
+			font-size:30px;
+			box-shadow: 5px 5px 5px grey;
+			}
+	.shareBtns {position:absolute;
+		bottom:10px;
+		left: 10px;}
+	.shareBtns button {background-color: transparent;}
+
+
+</style>
+
+<head>
+	<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class = "theBox">
+		<div class = "quote">
+			<hr><hr>
+		</div>
+		<div class = "shareBtns">
+			<button class = "btn share twitter">
+				<i class="fab fa-twitter-square fa-2x"></i>
+			</button>
+			<button class = "btn share cookie">
+				<i class="fas fa-minus-square fa-2x"></i>
+			</button>
+		</div>
+		<button class = "btn newQuote">
+			New Quote
+		</button>
+	</div>
+</body>
